@@ -9,6 +9,11 @@ This repo contains code for analyzing the predictive vision-language integraion 
 
 This project requires the following software and environment setup.
 
+### **Operating System and Hardware**
+- OS: CentOS 7.6.1810  
+- GPU Driver: 535.129.03  
+- CUDA: 12.2  
+
 ### **Python Environment**
 We provide a full `requirements.txt` containing all Python dependencies.  
 To reproduce the environment exactly, we recommend creating a clean **Python 3.8** environment via Conda:
@@ -79,5 +84,6 @@ You may use the code for research and educational purposes, but commercial use, 
 
 
 For full terms, please refer to the [LICENSE](./LICENSE) file.
+
 
 
