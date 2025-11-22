@@ -55,10 +55,9 @@ The main source files are the following:
 * `calculate_dissimilarity_correlation.py` contains the code for calculating the correlation between prediction error defined by features' consine distance and BOLD's beta activation.
 * `semantic_cluster.py` contains the code for unsupervised clustering of stimuli using CLIP features.
 * `visualization_SRL.py` contains the code for visualizing the raw brain response space, stimuli CLIP embedding space and BrainCLIP-encoded embedding space.
+* `demo.py` contains example code demonstrating the use of the models in the `./code/` folder using a simulated dataset. 
 
 `./Paper_figure.ipynb` contains the code for plotting the figure shown in the paper. Also, the jupyter notebook contains code for neural manifold analysis (in Sec. Figure 6). The original data used to reproduce the results in this notebook can be found at https://osf.io/gj3qx/
-
-`./demo/` contains example scripts demonstrating the use of the models in the `./code/` folder using a simulated dataset.  
 
 ---
 
@@ -86,6 +85,7 @@ You may use the code for research and educational purposes, but commercial use, 
 
 
 For full terms, please refer to the [LICENSE](./LICENSE) file.
+
 
 
 
