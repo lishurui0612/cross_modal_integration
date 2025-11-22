@@ -14,7 +14,7 @@ We provide a full `requirements.txt` containing all Python dependencies.
 To reproduce the environment exactly, we recommend creating a clean **Python 3.8** environment via Conda:
 
 ```bash
-conda create -n vli_env python=3.9
+conda create -n vli_env python=3.8.17
 conda activate vli_env
 pip install -r requirements.txt
 ```
@@ -79,4 +79,5 @@ You may use the code for research and educational purposes, but commercial use, 
 
 
 For full terms, please refer to the [LICENSE](./LICENSE) file.
+
 
