@@ -38,10 +38,10 @@ from utils import get_parameter_number, cosine_sheduler, ExponentialMovingAverag
 
 def apply_global_weighting_and_noise(data, weight_range=(0.8, 1.2), noise_std=0.01, threshold=0.5):
     if torch.rand(1).item() > threshold:
-        # È«¾Ö¼ÓÈ¨
+        # å…¨å±€åŠ æƒ
         weight = random.uniform(*weight_range)
         data = data * weight
-        # Ìí¼Ó¸ßË¹ÔëÉù
+        # æ·»åŠ é«˜æ–¯å™ªå£°
         noise = torch.randn_like(data) * noise_std
         return data + noise
     else:
@@ -50,9 +50,9 @@ def apply_global_weighting_and_noise(data, weight_range=(0.8, 1.2), noise_std=0.
 
 def apply_random_mask(sample, mask_ratio=0.1, threshold=0.5):
     if torch.rand(1).item() > threshold:
-        """Ó¦ÓÃËæ»úmaskµ½Ñù±¾µÄ²¿·ÖÌØÕ÷"""
-        mask = torch.rand_like(sample) < mask_ratio  # Éú³ÉËæ»úmask£¬¿ØÖÆmask±ÈÀı
-        masked_sample = sample * mask  # °´ÕÕmaskÈ¥³ıÌØÕ÷
+        """åº”ç”¨éšæœºmaskåˆ°æ ·æœ¬çš„éƒ¨åˆ†ç‰¹å¾"""
+        mask = torch.rand_like(sample) < mask_ratio  # ç”Ÿæˆéšæœºmaskï¼Œæ§åˆ¶maskæ¯”ä¾‹
+        masked_sample = sample * mask  # æŒ‰ç…§maskå»é™¤ç‰¹å¾
         return masked_sample
     else:
         return sample
@@ -76,11 +76,11 @@ def mixco(caption_voxels, image_voxels, beta=0.15, s_thresh=0.5):
 
 
 def cross_condition_resample(sample, exchange_ratio=0.1, threshold=0.3):
-    """ÊµÏÖ½»²æÌõ¼şÖØ²ÉÑù"""
-    # ´Ó dataloader ÖĞËæ»ú²ÉÑùÒ»¸ö batch£¬ÓÃÓÚ½»²æÌõ¼şÖØ²ÉÑù
+    """å®ç°äº¤å‰æ¡ä»¶é‡é‡‡æ ·"""
+    # ä» dataloader ä¸­éšæœºé‡‡æ ·ä¸€ä¸ª batchï¼Œç”¨äºäº¤å‰æ¡ä»¶é‡é‡‡æ ·
     if torch.rand(1).item() > threshold:
         condition_indices = torch.randperm(len(sample))
-        # Ìæ»»²¿·Ö beta Êı¾İ
+        # æ›¿æ¢éƒ¨åˆ† beta æ•°æ®
         resampled_sample = sample[condition_indices]
 
         num_features = sample.shape[1]
@@ -244,7 +244,7 @@ if __name__ == '__main__':
     if args.use_ne == 1:
         args.lr /= 2
 
-    # ¸ù¾İsubject³õÊ¼»¯
+    # æ ¹æ®subjectåˆå§‹åŒ–
     if args.subject == 'S1':
         args.num_vertices = 300245
         args.lh_vertices = 149079
@@ -338,7 +338,7 @@ if __name__ == '__main__':
         logger.info('---------------Start Training---------------')
         NCE = InfoNCE(temperature=0.07).to(device)
         for epoch in range(args.epochs):
-            # µ÷Õû learning rate
+            # è°ƒæ•´ learning rate
             for id, param_group in enumerate(optimizer.param_groups):
                 param_group['lr'] = lr_schedule[epoch]
 
@@ -352,7 +352,7 @@ if __name__ == '__main__':
                     sample[2] = apply_global_weighting_and_noise(sample[2], weight_range=(0.8, 1.2), noise_std=0.01)
                     sample[3] = apply_global_weighting_and_noise(sample[3], weight_range=(0.8, 1.2), noise_std=0.01)
 
-                # Ëæ»úmask
+                # éšæœºmask
                 if args.use_mask:
                     sample[2] = apply_random_mask(sample[2])
                     sample[3] = apply_random_mask(sample[3])
