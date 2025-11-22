@@ -32,7 +32,7 @@ Please install each tool following the official documentation provided on their 
 
 **Typical installation time**  
 - Python environment (via `conda` + `pip install -r requirements.txt`): **within ~1 hour** under standard network conditions.  
-- FSL / AFNI / FreeSurfer installations vary by OS and download speed; allow **1¨C3 hours** for complete installation and configuration of all neuroimaging tools.
+- FSL / AFNI / FreeSurfer installations vary by OS and download speed; allow **1~3 hours** for complete installation and configuration of all neuroimaging tools.
 
 ---
 
@@ -76,5 +76,6 @@ Li, S., Jin, Z., Zhang, R. Y., Gu, S., & Li, Y. (2025). Predictive vision-langua
 ## License
 This repository is released under the **CC BY-NC-ND 4.0** license.  
 You may use the code for research and educational purposes, but commercial use, distribution of modified versions, or sublicensing are not permitted.
+
 
 For full terms, please refer to the [LICENSE](./LICENSE) file.
