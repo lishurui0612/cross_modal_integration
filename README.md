@@ -12,7 +12,9 @@ This project requires the following software and environment setup.
 ### **Operating System and Hardware**
 - OS: CentOS 7.6.1810  
 - GPU Driver: 535.129.03  
-- CUDA: 12.2  
+- CUDA: 12.2
+- GPU: Single NVIDIA A100 80GB recommended  
+  - Note: Running on 40GB GPUs may cause out-of-memory errors for some participants.
 
 ### **Python Environment**
 We provide a full `requirements.txt` containing all Python dependencies.  
@@ -84,6 +86,7 @@ You may use the code for research and educational purposes, but commercial use, 
 
 
 For full terms, please refer to the [LICENSE](./LICENSE) file.
+
 
 
 
