@@ -47,6 +47,9 @@ Please install each tool following the official documentation provided on their 
 
 The main source files are the following:
 
+
+`./Paper_figure.ipynb` contains the code for plotting the figure shown in the paper. Also, the jupyter notebook contains code for neural manifold analysis (in Sec. Figure 6). The original data used to reproduce the results in this notebook can be found at https://osf.io/gj3qx/
+
 `./code/` contains scripts for analyzing fMRI data.
 
 * `extract_roi.py` contains the code for extract several ROIs of each participant, including suppressed/enhanced region, early visual cortex (EVC), V1-V3 separately, suppressed/enhanced EVC, suppressed/enhanced inferior frontal sulcus (IFS), middle frontal gyrus (MFG), etc.
@@ -57,7 +60,47 @@ The main source files are the following:
 * `visualization_SRL.py` contains the code for visualizing the raw brain response space, stimuli CLIP embedding space and BrainCLIP-encoded embedding space.
 * `demo.py` contains example code demonstrating the use of the models in the `./code/` folder using a simulated dataset. 
 
-`./Paper_figure.ipynb` contains the code for plotting the figure shown in the paper. Also, the jupyter notebook contains code for neural manifold analysis (in Sec. Figure 6). The original data used to reproduce the results in this notebook can be found at https://osf.io/gj3qx/
+`./model_cache/` is the directory used for storing cached models required for running the demos.
+
+- `download_model.sh` contains example commands for downloading the pretrained models.
+
+Before running `./code/demo.py`, **you must first download the models** by running:
+
+```bash
+cd model_cache
+bash download_model.sh
+```
+
+---
+
+## Demo
+
+We provide a demonstration code to show the voxel-wise encoding model and BrainCLIP model using a simulated dataset.
+
+### Running the Demo
+
+After downloading the pretrained models, run the demo with:
+
+```bash
+cd code
+python demo.py
+```
+
+### Expected Ouput of Demo
+
+Note: this expected output is based on my environment. The finally output may vary depending on users' configuration.
+
+```yaml
+Current device is  cuda
+----------Demo code for voxel-wise encoding model----------
+Loading vision model config from /public/home/lishr2022/anaconda3/envs/tats/lib/python3.8/site-packages/cn_clip/clip/model_configs/ViT-H-14.json
+Loading text model config from /public/home/lishr2022/anaconda3/envs/tats/lib/python3.8/site-packages/cn_clip/clip/model_configs/RoBERTa-wwm-ext-large-chinese.json
+Model info {'embed_dim': 1024, 'image_resolution': 224, 'vision_layers': 32, 'vision_width': 1280, 'vision_head_width': 80, 'vision_patch_size': 14, 'vocab_size': 21128, 'text_attention_probs_dropout_prob': 0.1, 'text_hidden_act': 'gelu', 'text_hidden_dropout_prob': 0.1, 'text_hidden_size': 1024, 'text_initializer_range': 0.02, 'text_intermediate_size': 4096, 'text_max_position_embeddings': 512, 'text_num_attention_heads': 16, 'text_num_hidden_layers': 24, 'text_type_vocab_size': 2}
+Shape of encoding model prediction is torch.Size([1, 10000])
+Regulation of 8 layers is -2.0789623260498047
+----------Demo code for BrainCLIP model----------
+In BrainCLIP demo, the similarity between caption response and image response is 0.7341265678405762
+```
 
 ---
 
@@ -85,6 +128,7 @@ You may use the code for research and educational purposes, but commercial use, 
 
 
 For full terms, please refer to the [LICENSE](./LICENSE) file.
+
 
 
 
