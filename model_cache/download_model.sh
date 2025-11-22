@@ -1,0 +1,1 @@
+wget https://huggingface.co/OFA-Sys/chinese-clip-vit-huge-patch14/resolve/4ab0ab7c37237391a2e3c83503ccd55984b1431a/clip_cn_vit-h-14.pt
