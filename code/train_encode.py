@@ -107,10 +107,10 @@ def calculateR(model, dataloader, device, args, target_index=None, shuffle=0):
         target_index = args.index
 
     if args.roi_type == 0:
-        # »´ƒ‘encoding
+        # ÂÖ®ËÑëencoding
         ROI_index = np.arange(args.num_vertices).astype(int)
     elif args.roi_type == 1:
-        # V1-V3≤Œ”Îencoding
+        # V1-V3ÂèÇ‰∏éencoding
         ROI_index = np.loadtxt(os.path.join(args.processed_root, args.subject, 'ROI', 'EVC.txt')).astype(int)
     elif args.roi_type == 2:
         ROI_index = np.loadtxt(os.path.join(args.processed_root, args.subject, 'ROI', 'IFS.txt')).astype(int)
@@ -199,10 +199,10 @@ def calculateR(model, dataloader, device, args, target_index=None, shuffle=0):
 def calculateR_unmatch(model, dataloader, device, args, shuffle=0):
     target_index = 4
     if args.roi_type == 0:
-        # »´ƒ‘encoding
+        # ÂÖ®ËÑëencoding
         ROI_index = np.arange(args.num_vertices).astype(int)
     elif args.roi_type == 1:
-        # V1-V3≤Œ”Îencoding
+        # V1-V3ÂèÇ‰∏éencoding
         ROI_index = np.loadtxt(os.path.join(args.processed_root, args.subject, 'ROI', 'EVC.txt')).astype(int)
     elif args.roi_type == 2:
         ROI_index = np.loadtxt(os.path.join(args.processed_root, args.subject, 'ROI', 'IFS.txt')).astype(int)
@@ -308,10 +308,10 @@ def test_performance(model, dataloader, device, args, target_index=None):
         target_index = args.index
 
     if args.roi_type == 0:
-        # »´ƒ‘encoding
+        # ÂÖ®ËÑëencoding
         ROI_index = np.arange(args.num_vertices).astype(int)
     elif args.roi_type == 1:
-        # V1-V3≤Œ”Îencoding
+        # V1-V3ÂèÇ‰∏éencoding
         ROI_index = np.loadtxt(os.path.join(args.processed_root, args.subject, 'ROI', 'EVC.txt')).astype(int)
     elif args.roi_type == 2:
         ROI_index = np.loadtxt(os.path.join(args.processed_root, args.subject, 'ROI', 'IFS.txt')).astype(int)
@@ -461,7 +461,7 @@ if __name__ == '__main__':
     parser = add_argparse_args(parser)
     args = parser.parse_args()
 
-    # ∏˘æ›subject≥ı ºªØ
+    # Ê†πÊçÆsubjectÂàùÂßãÂåñ
     if args.subject == 'S1':
         args.num_vertices = 300245
         args.lh_vertices = 149079
@@ -533,10 +533,10 @@ if __name__ == '__main__':
     coords = torch.from_numpy(coords).to(device, dtype=torch.float)
 
     if args.roi_type == 0:
-        # »´ƒ‘encoding
+        # ÂÖ®ËÑëencoding
         ROI_index = np.arange(args.num_vertices).astype(int)
     elif args.roi_type == 1:
-        # V1-V3≤Œ”Îencoding
+        # V1-V3ÂèÇ‰∏éencoding
         ROI_index = np.loadtxt(os.path.join(args.processed_root, args.subject, 'ROI', 'EVC.txt')).astype(int)
     elif args.roi_type == 2:
         ROI_index = np.loadtxt(os.path.join(args.processed_root, args.subject, 'ROI', 'IFS.txt')).astype(int)
@@ -612,7 +612,7 @@ if __name__ == '__main__':
     if not os.path.exists(os.path.join(args.output_dir, 'opt_img_model.pth')) and not os.path.exists(os.path.join(args.output_dir, 'opt_cap_model.pth')):
         logger.info('---------------Start Training---------------')
         for epoch in range(args.epochs):
-            # µ˜’˚ learning rate
+            # Ë∞ÉÊï¥ learning rate
             for id, param_group in enumerate(optimizer.param_groups):
                 param_group['lr'] = lr_schedule[epoch]
 
@@ -1004,10 +1004,10 @@ if __name__ == '__main__':
 
     # Test Layer Selector performance
     if args.roi_type == 0:
-        # »´ƒ‘encoding
+        # ÂÖ®ËÑëencoding
         ROI_index = np.arange(args.num_vertices).astype(int)
     elif args.roi_type == 1:
-        # V1-V3≤Œ”Îencoding
+        # V1-V3ÂèÇ‰∏éencoding
         ROI_index = np.loadtxt(os.path.join(args.processed_root, args.subject, 'ROI', 'EVC.txt')).astype(int)
     elif args.roi_type == 2:
         ROI_index = np.loadtxt(os.path.join(args.processed_root, args.subject, 'ROI', 'IFS.txt')).astype(int)
@@ -1055,5 +1055,6 @@ if __name__ == '__main__':
         plt.bar(categoris, word_weight, color='skyblue')
         fig.savefig(savedir)
         plt.close(fig)
+
 
     logger.info('----------------Complete testing----------------')
