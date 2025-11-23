@@ -122,12 +122,18 @@ Li, S., Jin, Z., Zhang, R. Y., Gu, S., & Li, Y. (2025). Predictive vision-langua
 ```
 ---
 
+## Acknowledgements
+* https://github.com/huzeyann/MemoryEncodingModel
+* https://github.com/OFA-Sys/Chinese-CLIP
+---
+
 ## License
 This repository is released under the **CC BY-NC-ND 4.0** license.  
 You may use the code for research and educational purposes, but commercial use, distribution of modified versions, or sublicensing are not permitted.
 
 
 For full terms, please refer to the [LICENSE](./LICENSE) file.
+
 
 
 
